@@ -18,10 +18,11 @@
           </table>
 
         {% for value in chain[1:] %}
-           &emsp; &emsp; &emsp; &#8595;
+          <div style="margin-left:100px">&#8595;</div>
+
           <table border="1">
                 <tr>
-                    <td> Действие/Категория обращения </td>
+                    <td width="40"> Действие/ Категория обращения </td>
                     <td> {{ value[0] }} </td>
                 </tr>
                 <tr>
@@ -39,6 +40,7 @@
           </table>
         {% endfor %}
 
+     <br>
      <br>
      <br>
      {% endfor %}
