@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magic!</title>
+</head>
+<body>
+     {% for chain in channels %}
+          <table border="1">
+                <tr>
+                    <td> ID Абонента </td>
+                    <td> {{ chain[0][0] }} </td>
+                </tr>
+                <tr>
+                    <td> Тарифный план </td>
+                    <td> {{ chain[0][1] }} </td>
+                </tr>
+          </table>
+
+        {% for value in chain[1:] %}
+           &emsp; &emsp; &emsp; &#8595;
+          <table border="1">
+                <tr>
+                    <td> Действие/Категория обращения </td>
+                    <td> {{ value[0] }} </td>
+                </tr>
+                <tr>
+                    <td> Дата и время </td>
+                    <td> {{ value[1] }} </td>
+                </tr>
+                <tr>
+                    <td> Канал </td>
+                    <td> {{ value[2] }} </td>
+                </tr>
+                <tr>
+                    <td> Признак </td>
+                    <td> {{ value[3] }} </td>
+                </tr>
+          </table>
+        {% endfor %}
+
+     <br>
+     <br>
+     {% endfor %}
+</body>
+</html>
