@@ -23,7 +23,7 @@ def get_channels():
         subs.to_dict()
         try:
             for subs_id in subs["subscriber"].split(","):
-                subs_id = int(subs_id)
+                subs_id = int(subs_id) if subs_id else None
         except ValueError:
             logging.error("{}: {}".format(sys.exc_info()[0], sys.exc_info()[1]))
             logging.error("".join(traceback.format_tb(sys.exc_info()[2])))
