@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+ <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<meta charset="UTF-8">
     <title>Hello There!</title>
 </head>
 <body>
@@ -14,9 +15,11 @@
                               transform:scale(1.2);"/> {{ reason }}
         {% endfor %}
         </p>
-        <input type = "submit" value = "SEND!" />
-        <input type="RESET" name="RESET">
+        <input type = "submit" value = "Отправить" />
+        <input type="RESET" name="RESET" value="Сбросить фильтры">
     </form>
 
 </body>
+<footer>
+</footer>
 </html>
