@@ -5,9 +5,17 @@
     <title>Hello There!</title>
 </head>
 <body>
-    <form action = "http://{{ hostname }}:{{ port }}/do_the_thing" method = "POST">
+    <form action = "http://{{ hostname }}:{{ port }}/do_the_thing" method = "POST" name="forma">
         <p>Введите идентификатор абонента: <input type = "text" name="subscriber" /></p>
-        <p><input type = "submit" value = "submit" /></p>
+        <p>Выберите причину обращения:
+        {% for reason in reasons %}
+            <br><input type = "radio" name="reason" value="{{ reason }}"
+                       style="margin-left:40px;
+                              transform:scale(1.2);"/> {{ reason }}
+        {% endfor %}
+        </p>
+        <input type = "submit" value = "SEND!" />
+        <input type="RESET" name="RESET">
     </form>
 
 </body>

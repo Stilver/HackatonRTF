@@ -21,24 +21,21 @@ class Magic:
                 if item[0] == accumlator[ind - 1][0] \
                    and item[3] >= accumlator[ind - 1][3] \
                    and item[3] <= accumlator[ind - 1][3] + timedelta(days=1):
-                   # and (item[1] == reason or item[-1] == "Личный кабинет"):
                     accumlator.append(list(item))
                     ind += 1
                 else:
                     result.append(accumlator.copy())
                     accumlator = [list(item)]
                     ind = 1
-                # reason = item[1] if item[-1] != "Личный кабинет" else reason
             else:
                 accumlator = [list(item)]
                 ind += 1
-                # reason = item[1] if item[-1] != "Личный кабинет" else None
 
             if index + 1 == len(statement_result):
                 result.append(accumlator.copy())
         return result
 
-    def reformat_chains(self, subs_id=None):
+    def reformat_chains(self, subs_id=None, reason=None):
         """Преобразуем цепочки в удобный для предоставления вид"""
         raw_chains = self.get_and_sort_selected_items(subs_id)
         result = []
@@ -60,7 +57,11 @@ class Magic:
             for node in chain:
                 pure_chain.append([node[1], node[3], node[4], node[5]])
 
-            result.append(pure_chain)
+            # Если указана причина, то будут отобраны цепочки с этой причиной
+            if reason and reason in [node[0] for node in pure_chain[1:]]:
+                result.append(pure_chain)
+            elif not reason:
+                result.append(pure_chain)
 
         return result
 
