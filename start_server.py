@@ -31,7 +31,7 @@ reasons = [
 
 @app.route("/")
 def index():
-    return render_template("index.html", hostname=HOSTNAME, port=PORT, reasons=reasons)
+    return render_template("index.html", reasons=reasons)
 
 
 @app.route("/do_the_thing", methods=['POST'])
@@ -49,10 +49,10 @@ def get_channels():
         result = Magic().reformat_chains(subs["subscriber"], subs.get("reason", 0))
         return render_template("do_the_thing.html", channels=result) if result else "Nothing was found!"
 
-#
-# @app.route("/", methods=['GET'])
-# def get_channels():
+# @app.route("/test", methods=['GET'])
+# def get_channelses():
 #     result = Magic().reformat_chains()
+#     result = []
 #     return render_template("do_the_thing.html", channels=result) if result else "Nothing was found!"
 
 

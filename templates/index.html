@@ -6,7 +6,7 @@
     <title>Hello There!</title>
 </head>
 <body>
-    <form action = "http://{{ hostname }}:{{ port }}/do_the_thing" method = "POST" name="forma">
+    <form action = "/do_the_thing" method = "POST" name="forma">
         <p>Введите идентификатор абонента: <input type = "text" name="subscriber" /></p>
         <p>Выберите причину обращения:
         {% for reason in reasons %}
